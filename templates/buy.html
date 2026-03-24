@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Buy Artwork</title>
+</head>
+
+<body>
+
+<h2>{{ art.title }}</h2>
+
+<img src="{{ art.image_url }}" width="300">
+
+<form action="/place-order" method="post">
+    <input type="hidden" name="art_id" value="{{ art.id }}">
+
+    <br><br>
+    Name:
+    <input type="text" name="name" required>
+
+    <br><br>
+    Phone:
+    <input type="text" name="phone" required>
+
+    <br><br>
+    Address:
+    <textarea name="address" required></textarea>
+
+    <br><br>
+    <button type="submit">Place Order</button>
+</form>
+
+</body>
+</html>

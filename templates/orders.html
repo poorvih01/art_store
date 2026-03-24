@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Orders Dashboard</title>
+<a href="/admin/upload">
+<button>Upload New Art</button>
+</a>
+
+<style>
+body{
+font-family:Arial;
+background:#f5f5f5;
+padding:20px;
+}
+
+h1{
+text-align:center;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+box-shadow:0 0 10px #ccc;
+}
+
+th,td{
+padding:12px;
+text-align:left;
+border-bottom:1px solid #ddd;
+}
+
+th{
+background:black;
+color:white;
+}
+
+img{
+width:80px;
+border-radius:5px;
+}
+
+tr:hover{
+background:#f1f1f1;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>📦 Customer Orders</h1>
+
+<table>
+<tr>
+<th>Artwork</th>
+<th>Title</th>
+<th>Customer</th>
+<th>Phone</th>
+<th>Address</th>
+</tr>
+
+{% for order in orders %}
+<tr>
+<td>
+<img src="{{ art_dict[order.art_id].image }}">
+</td>
+
+<td>
+{{ art_dict[order.art_id].title }}
+</td>
+
+<td>{{ order.name }}</td>
+<td>{{ order.phone }}</td>
+<td>{{ order.address }}</td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
